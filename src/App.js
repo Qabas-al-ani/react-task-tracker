@@ -28,7 +28,11 @@ function App() {
     setTasks(tasks.filter(tasks => tasks.id !== id));
   };
   const toggleReminder = id => {
-    console.log(id);
+    setTasks(
+      tasks.map(task =>
+        tasks.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    );
   };
 
   return (
